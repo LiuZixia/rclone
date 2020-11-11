@@ -45,7 +45,7 @@ const (
 	minSleep                    = 10 * time.Millisecond
 	maxSleep                    = 2 * time.Second
 	decayConstant               = 2 // bigger for slower decay, exponential
-	graphURL                    = "https://graph.microsoft.com/v1.0"
+	graphURL                    = "https://microsoftgraph.chinacloudapi.cn/v1.0"
 	configDriveID               = "drive_id"
 	configDriveType             = "drive_type"
 	driveTypePersonal           = "personal"
@@ -60,8 +60,8 @@ var (
 	// Description of how to auth for this app for a business account
 	oauthConfig = &oauth2.Config{
 		Endpoint: oauth2.Endpoint{
-			AuthURL:  "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
-			TokenURL: "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+			AuthURL:  "https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize",
+			TokenURL: "https://login.chinacloudapi.cn/common/oauth2/v2.0/token",
 		},
 		Scopes:       []string{"Files.Read", "Files.ReadWrite", "Files.Read.All", "Files.ReadWrite.All", "offline_access", "Sites.Read.All"},
 		ClientID:     rcloneClientID,
@@ -173,7 +173,7 @@ func init() {
 				opts = rest.Opts{
 					Method:  "GET",
 					RootURL: graphURL,
-					Path:    "/sites/" + siteID + "/drives",
+					Path:    "/sites/" + siteID + "/drive",
 				}
 			}
 
