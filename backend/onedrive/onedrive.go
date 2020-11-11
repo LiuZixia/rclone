@@ -134,7 +134,7 @@ func init() {
 				opts = rest.Opts{
 					Method:  "GET",
 					RootURL: graphURL,
-					Path:    "/sites/{site-id}/drive",
+					Path:    "/sites/" + siteID + "/drive",
 				}
 			case "driveid":
 				fmt.Printf("Paste your Drive ID here> ")
